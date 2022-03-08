@@ -22,38 +22,26 @@ int get_siblings(struct _node_ *root)
 {
 	struct _node_ *child = root->child, *sib = root->next;
 	int c = 0;
-
 	if(child == 0) return c;
-
 	++c;
-
 	if (sib == 0) return c;
-
 	while (sib != 0) {
 		c++;
 		sib = sib->next;
 	}
-
 	return c;
-
-
 }
 void print_descendants(struct _node_ *root, struct _node_ *base)
 {
 
 	int s = get_siblings(root);
 	struct _node_ *t = root;
-
 	dbg("no of siblings  %4p %d\n", root, s);
-
 	if (s == 0) {
 		dbg("no child return\n");
 		return;
 	}
-
-
 	//dbg("node value %4p root, %c\n", root, root->v);
-
 	for( int i = 0; i < s; ++i) {
 		//get child and then siblings
 		if (i == 0) {
@@ -71,9 +59,7 @@ void print_descendants(struct _node_ *root, struct _node_ *base)
 		}
 	
 	}
-
 }
-
 void print(struct _node_ *root)
 {
 	dbg("%c\n", root->v);
@@ -96,8 +82,6 @@ void add_child(struct _node_ *root, unsigned char v)
 		dbg("child %4p %4c\n", root->child, v);
 	}
 }
-
-
 
 void add_siblings(struct _node_ *root, unsigned char v)
 {
@@ -146,9 +130,8 @@ int main()
     add_siblings(root, 'c');
 	add_child(root->child, 'x');
 	add_child(root->next, 'y');
-    //add_child(root, 'c');
-    //add_child(root->next, 'b');
-	//print(root);
+	//add_child(root, 'c');
+	//add_child(root->next, 'b');
 	print_descendants(root, root);
 	return 1;
 }
