@@ -57,7 +57,7 @@ void print_descendants(struct _node_ *root, struct _node_ *base)
 			dbg("%c", (t->next + i -1 )->v);
 			if ( root == base) dbg("%c\n",root->v );
 		}
-	
+
 	}
 }
 void print(struct _node_ *root)
@@ -70,7 +70,7 @@ void print(struct _node_ *root)
 	while (i != 0) {
 		dbg("%c", i->v);
 		i = i->next;
-}
+	}
 }
 
 void add_child(struct _node_ *root, unsigned char v)
@@ -96,7 +96,7 @@ void add_siblings(struct _node_ *root, unsigned char v)
 
 	if(root->next == 0) {
 		root->next = malloc(sizeof(struct _node_));
-        memset(root->next, 0, sizeof(struct _node_));
+		memset(root->next, 0, sizeof(struct _node_));
 		root->next->v = v;
 		//child next point to sibling
 		//root->child->next = root->next;
@@ -107,7 +107,7 @@ void add_siblings(struct _node_ *root, unsigned char v)
 
 	while( i->next != 0) i = i->next;
 	i->next = malloc(sizeof(struct _node_));
-    memset(i->next, 0, sizeof(struct _node_));
+	memset(i->next, 0, sizeof(struct _node_));
 	i->next->v = v;
 	dbg("sibs %4p %4c\n", i->next, v);
 	//i->child->next = i->next;
@@ -127,7 +127,7 @@ int main()
 	val(root, v, 'a');
 	dbg("root %4p %c\n", root,root->v);
 	add_child(root, 'b');
-    add_siblings(root, 'c');
+	add_siblings(root, 'c');
 	add_child(root->child, 'x');
 	add_child(root->next, 'y');
 	//add_child(root, 'c');
